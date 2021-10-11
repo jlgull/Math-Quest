@@ -1,7 +1,7 @@
 #!/bin/python3
 #
-# Filename: 3x+1.py
-# Built from Bash script 3X+1.sh
+# Filename: 3x_1V1
+# Built from Bash Script 3xtb1.sh and 3xtb2.sh (developed by Tracy Baker)
 # Author: Jonathan Heard
 # Purpose: Review the Collatz (3X+1) math challenge.
 #
@@ -10,9 +10,10 @@
 
 i = 0
 
-# Max is the maximum value seen in Num
+# Creating Odd and Even to keeping track of
+# the count of Odd and Even results.
 
-Max = 0
+Odd = 0; Even = 0
 
 # End of Variables
 
@@ -24,20 +25,20 @@ Seed = int(input("Enter the starting value: "))
 
 Num = Seed
 
-print("\nInitial Number = ", Seed, "\n")
+# Set Max to Seed value, in the case the Seed value is the maximum value
 
-while Num != 1:
+Max = Seed
+
+while Num != 1 and Num > 0:
 
     i += 1
 
     if Num % 2 == 0:
-#       print("\nEven")
+        Even += 1
         Num = int(Num) / 2
-#       print(Num)
     else:
-#       print("\nOdd")
+        Odd += 1
         Num = int(Num) * 3 + 1
-#       print(Num)
 
         # i += 1
 
@@ -50,5 +51,9 @@ while Num != 1:
 print("\nInitial Number = ", Seed)
 
 print("\nLargest Number = ", int(Max))
+
+print("\nThere were ", Even, " Even numbers and ", Odd, " Odd numbers.")
+print("Speaking in Percentages, there were \n\t", (Even / i)*100, "% Even numbers and")
+print("\t", (Odd / i)*100, "% Odd numbers.")
 
 print("\nTotal iterations = ", i)
