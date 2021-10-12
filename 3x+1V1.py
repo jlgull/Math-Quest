@@ -52,8 +52,9 @@ print("\nInitial Number = ", Seed)
 
 print("\nLargest Number = ", int(Max))
 
-print("\nThere were ", Even, " Even numbers and ", Odd, " Odd numbers.")
-print("Speaking in Percentages, there were \n\t", (Even / i)*100, "% Even numbers and")
-print("\t", (Odd / i)*100, "% Odd numbers.")
-
 print("\nTotal iterations = ", i)
+
+print("\nThere were ", Even, " Even numbers and ", Odd, " Odd numbers.")
+print("Speaking in Percentages, there were ")
+print("\t", (Even / i)*100, "% Even numbers and")
+print("\t", (Odd / i)*100, "% Odd numbers.")
