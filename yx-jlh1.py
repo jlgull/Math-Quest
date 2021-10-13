@@ -39,7 +39,7 @@ LoopList = []
 # or detected loop.
 while True:
 
-# Check to see if Num is already in the MasterList array
+    # Check to see if Num is already in the MasterList array
     if Num not in MasterList:
 
         # Add Num to MasterList
@@ -65,29 +65,29 @@ while True:
 
     except ValueError:
         MasterList.append(int(Num)) """
+        print("Iteration #", i, ": Num =", int(Num))
 
-    i += 1
+        i += 1
 
-    # If Num is even, divide by 2
-    if Num % 2 == 0:
-        Even += 1
-        Num = Num / 2
+        # If Num is even, divide by 2
+        if Num % 2 == 0:
+            Even += 1
+            Num = Num / 2
 
-    # If Num is odd then apply yx+1 formula it
-    else:
-        Odd += 1
-        Num = Num * Multiplier + 1
+        # If Num is odd then apply yx+1 formula it
+        else:
+            Odd += 1
+            Num = Num * Multiplier + 1
 
-    # Keep track of the greatest number found
-    if Num > Max:
-        Max = Num
-
-    print("Iteration #",  i, ": Num =",  int(Num))
+        # Keep track of the greatest number found
+        if Num > Max:
+            Max = Num
 
     # If Num reaches 1, the loop has been found, break out of the loop
     # if Num == 1:
-    if Num in MasterList:
-       # MasterList.append(int(Num))
+    #if Num in MasterList:
+    # MasterList.append(int(Num))
+    else:
         Index = MasterList.index(Num)
         for LoopListIndex in range(Index, len(MasterList)):
             LoopList.append(MasterList[LoopListIndex])
