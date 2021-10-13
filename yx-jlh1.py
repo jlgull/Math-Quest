@@ -1,18 +1,18 @@
 #!/bin/python3
 #
-# Filename: yx.py
-# Built from Bash Script 3xtb1.sh and 3xtb2.sh (developed by Tracy Baker)
+# Filename: yx-jlh1.py
+# Built from Python program yx.py by Tracy Baker
 # Author: Jonathan Heard
-# Revision by: Tracy Baker
 # Purpose: Review the Collatz (3X+1) math challenge.
 
 # Tracy couldn't just leave well enough alone... Learning some Python tonight
 
-#
-# Set initial variables
-# i is the iteration counter
-# Creating Odd and Even to keeping track of
-# the count of Odd and Even results.
+""" Set initial variables
+    i is the iteration counter
+    index is the location within the MasterList of the start of
+    the LoopList.
+    Creating Odd and Even to keeping track of
+    the count of Odd and Even results. """
 i = Odd = Even = 0
 
 # End of Variables
@@ -39,20 +39,32 @@ LoopList = []
 # or detected loop.
 while True:
 
-    # Check to see if Num is already in the MasterList array
-    if Num in MasterList:
+# Check to see if Num is already in the MasterList array
+    if Num not in MasterList:
 
-        # If Num is already in LoopList, the loop is found
+        # Add Num to MasterList
+        MasterList.append(int(Num))
+
+        """" # If Num is already in LoopList, the loop is found
         # break the while loop
-        if Num in LoopList:
-            break
+        # if Num in LoopList:
+        #     break
 
         # Otherwise, add Num to LoopList
         else:
             LoopList.append(int(Num))
 
     # Add Num to MasterList
-    MasterList.append(int(Num))
+    MasterList.append(int(Num)) 
+   # New method of finding the LoopList by jlh
+    try:
+        MasterListIndex = MasterList.index(Num)
+        for LoopListIndex in range(MasterListIndex, len(MasterList)):
+            LoopList.append(MasterList(LoopListIndex))
+            break
+
+    except ValueError:
+        MasterList.append(int(Num)) """
 
     i += 1
 
@@ -66,10 +78,6 @@ while True:
         Odd += 1
         Num = Num * Multiplier + 1
 
-    # If Num has gone negative, break out of the loop
-    # if Num < 1:   # In Python the number doesn't appear to ever go negative
-    #        break
-
     # Keep track of the greatest number found
     if Num > Max:
         Max = Num
@@ -77,7 +85,12 @@ while True:
     print("Iteration #",  i, ": Num =",  int(Num))
 
     # If Num reaches 1, the loop has been found, break out of the loop
-    if Num == 1:
+    # if Num == 1:
+    if Num in MasterList:
+       # MasterList.append(int(Num))
+        Index = MasterList.index(Num)
+        for LoopListIndex in range(Index, len(MasterList)):
+            LoopList.append(MasterList[LoopListIndex])
         break
 
 """ ##### END OF while LOOP ##### """
