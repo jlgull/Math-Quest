@@ -73,6 +73,8 @@ print("\nUsing the formula (", int(Multiplier), "* x ) + 1")
 
 print("\nLoop Found!", LoopList)
 
+print("\nMaster List", MasterList)
+
 print("\nInitial Number =", Seed)
 
 print("\nLargest Number =", int(Max))
