@@ -1,0 +1,5 @@
+# List of file types to ignore from this git repository.
+#
+
+*.tmp
+*.log
