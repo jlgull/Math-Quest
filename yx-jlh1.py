@@ -62,9 +62,8 @@ while True:
 
     # If Num is in MasterList, a loop has bee found.
     else:
-        Index = MasterList.index(Num)
-        for LoopListIndex in range(Index, len(MasterList)):
-            LoopList.append(MasterList[LoopListIndex])
+        for Index in range(MasterList.index(Num), len(MasterList)):
+            LoopList.append(MasterList[Index])
         break
 
 """ ##### END OF while LOOP ##### """
@@ -73,7 +72,7 @@ print("\nUsing the formula (", int(Multiplier), "* x ) + 1")
 
 print("\nLoop Found!", LoopList)
 
-print("\nMaster List", MasterList)
+# print("\nMaster List", MasterList)
 
 print("\nInitial Number =", Seed)
 
