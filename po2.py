@@ -6,7 +6,7 @@
 
 Guess = int(input("Enter a number to test if it is a power of 2. "))
 
-# Use Boolean and to test if number is a power of 2.
+# Use Boolean a and to test if number is a power of 2.
 
 if (Guess & Guess - 1) == 0:
 

@@ -30,7 +30,7 @@ os.system('clear')
 print("\nThe log file being used is:", LogFile)
 
 # MaxSize = sys.maxsize  # Used to set the largest number to test.
-MaxSize = 5000
+MaxSize = 50000
 
 print("\nThe numbers 2 though", MaxSize, "will be tested.")
 print("(It'll take roughly 5 million years, at 100 iterations per number,")
@@ -82,7 +82,7 @@ while TestNum <= MaxSize:
         if TimeCheck == "y":
             NumCount += 1
             CheckTime = int(time.time()-StartTime)
-            if CheckTime >= 60:
+            if CheckTime >= 1:
                 print("\n", NumCount, "total numbers have been checked in the first second")
                 Pause = input("\nPress Enter to continue...")
 
