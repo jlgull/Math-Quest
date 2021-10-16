@@ -8,20 +8,30 @@ which only processes numbers if they aren't in the master number
 list. Once a number is repeated, the loop number list can be
 constructed.
 """
-import sys
+
+# Section to import all modules used in this program
 
 # Eventually, this will write to a file. So, sys is needed
 # also, "copy" stdout to orginal_stdout. This will allow
 # redirection of stdout to a file using print()
+
 import sys
+
+# os needs to be imported to delete the log file, if it exists.
+# Otherwise, it just continues to grow with each execution of the script
+import os
+
+# If time is being measured the time module will be needed.
+
+import time
+
+# End of import section
+
 original_stdout = sys.stdout
 
 # Set the log file name
 LogFile = "findloops.py.log"
 
-# os needs to be imported to delete the log file, if it exists. 
-# Otherwise, it just continues to grow with each execution of the script
-import os
 if os.path.exists(LogFile):
     os.remove(LogFile)
 
@@ -43,12 +53,11 @@ Multiplier = int(input("\nEnter a multiplier. For example 3, 5, 7, etc..: "))
 MaxIterations = int(input("\nMaximum iterations to test (note loops have been found between 100 and 200): "))
 
 # Ask if an optional time check is to be done at 1 second of processing time
-# TimeCheck = "n"
+
 TimeCheck = input("\nCheck the timer at 1 second to see how many numbers have been checked (y = yes)? ")
-NumCount = 0
 if TimeCheck == "y":
-    import time
     StartTime = time.time()
+    NumCount = 0
 
 """ Set some variables
     > Set the start x in yx+1 to 2 (TestNum)
@@ -81,17 +90,17 @@ while TestNum <= MaxSize:
         # Do a 1 second time check if TimeCheck is y
         if TimeCheck == "y":
             NumCount += 1
-            CheckTime = int(time.time()-StartTime)
-            if CheckTime >= 1:
+            CheckTime = int(time.time() - StartTime)
+            if CheckTime == 1:
                 print("\n", NumCount, "total numbers have been checked in the first second")
                 Pause = input("\nPress Enter to continue...")
 
-        # increment the iteration counter (i)
-        i += 1
-
         # If Num isn't in MasterList, add it and process it
         if Num not in MasterList:
-    
+
+            # increment the iteration counter (i)
+            i += 1
+
             # Add Num to MasterList
             MasterList.append(int(Num))
 
@@ -112,8 +121,6 @@ while TestNum <= MaxSize:
             LoopNum += 1
             for Index in range(MasterList.index(Num), len(MasterList)):
                 LoopList.append(MasterList[Index])
-
-#        print("Equation :(", Multiplier, "x)+1, inc =", i, "Testing:", TestNum, "Result:", int(Num))
 
             # break
 
