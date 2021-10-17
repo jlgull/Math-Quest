@@ -36,6 +36,7 @@ LoopList = []
 while True:
 
     # Check to see that Num is not already in the MasterList array
+    # then add it and proceed with the while loop.
     if Num not in MasterList:
 
         # Add Num to MasterList
@@ -60,19 +61,19 @@ while True:
         if Num > Max:
             Max = Num
 
-    # If Num is in MasterList, a loop has bee found.
+    # If Num is in MasterList, use list comprehension to make the LoopList.
     else:
-        for Index in range(MasterList.index(Num), len(MasterList)):
-            LoopList.append(MasterList[Index])
+        #for Index in range(MasterList.index(Num), len(MasterList)):
+        #    LoopList.append(MasterList[Index])
+        LoopList = [MasterList[Index] for Index in range(MasterList.index(Num) , len(MasterList))]
         break
 
-""" ##### END OF while LOOP ##### """
+""" ##### END OF while LOOP ##### 
+    Print out all the findings. """
 
 print("\nUsing the formula (", int(Multiplier), "* x ) + 1")
 
 print("\nLoop Found!", LoopList)
-
-# print("\nMaster List", MasterList)
 
 print("\nInitial Number =", Seed)
 
@@ -81,8 +82,8 @@ print("\nLargest Number =", int(Max))
 print("\nTotal iterations = ", i)
 
 print("\nThere were", Even, "even numbers and", Odd, "odd numbers.")
-print("Speaking in Percentages, there were ")
-print("\t", (Even / i)*100, "% even numbers and")
-print("\t", (Odd / i)*100, "% odd numbers.")
+print("\nSpeaking in Percentages, there were ")
+print("\t{:.2%}".format(Even / i), "even numbers and")
+print("\t{:.2%}".format(Odd / i), "odd numbers.")
 
 """ End of Program """

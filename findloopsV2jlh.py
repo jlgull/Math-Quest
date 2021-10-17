@@ -40,7 +40,7 @@ os.system('clear')
 print("\nThe log file being used is:", LogFile)
 
 # MaxSize = sys.maxsize  # Used to set the largest number to test.
-MaxSize = 50000
+MaxSize = int(input("Enter the largest number to be tested: "))
 
 print("\nThe numbers 2 though", MaxSize, "will be tested.")
 print("(It'll take roughly 5 million years, at 100 iterations per number,")
@@ -114,14 +114,14 @@ while TestNum <= MaxSize:
             else:
                 Num = Num * Multiplier + 1
 
-        # If Num is in MasterList, a loop is found. Create LoopList
+        # If Num is in MasterList, use list comprehension to make the LoopList.
         # by taking the range of numbers from the first time Num appeared
         # in MasterList until the the end of MasterList
         else:
             LoopNum += 1
-            for Index in range(MasterList.index(Num), len(MasterList)):
-                LoopList.append(MasterList[Index])
-
+            #for Index in range(MasterList.index(Num), len(MasterList)):
+            #    LoopList.append(MasterList[Index])
+            LoopList = [MasterList[Index] for Index in range(MasterList.index(Num), len(MasterList))]
             # break
 
     """ END OF INSIDE while LOOP """
@@ -141,7 +141,13 @@ while TestNum <= MaxSize:
             sys.stdout = f
             print("(", Multiplier, "x+1) Testing:", TestNum, " Loop #", LoopNum, " Iteration", i, ":", LoopList)
             sys.stdout = original_stdout
-    
+
+    if i > MaxIterations:
+        with open(LogFile, 'a') as f:
+            sys.stdout = f
+            print("(", Multiplier, "x+1) Testing:", TestNum, " No loop was found, with Max Iterations =", MaxIterations)
+            sys.stdout = original_stdout
+
     # Increment to the next number
     TestNum += 1
 
