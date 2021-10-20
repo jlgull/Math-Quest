@@ -110,7 +110,7 @@ while TestNum <= MaxSize:
             if Num % 2 == 0:
                 Num = Num / 2
 
-            # If Num is odd then apply yx+1 formula it
+            # Else Num is odd then apply yx+1 formula it
             else:
                 Num = Num * Multiplier + 1
 
@@ -119,10 +119,7 @@ while TestNum <= MaxSize:
         # in MasterList until the the end of MasterList
         else:
             LoopNum += 1
-            #for Index in range(MasterList.index(Num), len(MasterList)):
-            #    LoopList.append(MasterList[Index])
             LoopList = [MasterList[Index] for Index in range(MasterList.index(Num), len(MasterList))]
-            # break
 
     """ END OF INSIDE while LOOP """
     
