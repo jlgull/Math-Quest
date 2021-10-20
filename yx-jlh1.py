@@ -75,11 +75,11 @@ print("\nUsing the formula (", int(Multiplier), "* x ) + 1")
 
 print("\nLoop Found!", LoopList)
 
-print("\nInitial Number =", Seed)
+print("\nInitial Number = {:,}".format(int(Seed)))
 
-print("\nLargest Number =", int(Max))
+print("\nLargest Number = {:,}".format(int(Max)))
 
-print("\nTotal iterations = ", i)
+print("\nTotal iterations = {:,}".format(i))
 
 print("\nThere were", Even, "even numbers and", Odd, "odd numbers.")
 print("\nSpeaking in Percentages, there were ")
