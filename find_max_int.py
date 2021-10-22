@@ -15,6 +15,10 @@ constructed.
 import sys
 original_stdout = sys.stdout
 
+# To allow for measuring time it takes to reach each new Max Iteration.
+
+import time
+
 # Set the log file name
 LogFile = "findloops.py.log"
 
@@ -26,7 +30,7 @@ if os.path.exists(LogFile):
 
 print ("\nThe log file being used is:",LogFile)
 
-print ("\nThe numbers 2 though",sys.maxsize,"will be tested.")
+print ("\nThe numbers 2 though {:,}".format(sys.maxsize), "will be tested.")
 print ("(It'll take roughly 5 million years, at 100 iterations per number,")
 print ("to check them all ... which is still about 40 times faster than Bash.)")
 
@@ -43,6 +47,9 @@ Multiplier = int(input("\nEnter a multiplier. For example 3, 5, 7, etc..: "))
 """
 TestNum = 2
 Max_i = LoopControl = LoopNum = 0
+
+# Create a variable to capture start time
+StartTime = time.time()
 
 # Continue processing asl long as TestNum is less than or equal to the
 # maximum allowable integer in Python
@@ -112,7 +119,8 @@ while TestNum <= sys.maxsize:
         if i > Max_i:
             with open(LogFile,'a') as f:
                 sys.stdout = f
-                print ("(",Multiplier,"x+1) Testing:",TestNum," Loop #",LoopNum," Max. Iteration",Max_i,":",LoopList)
+                print ("(", Multiplier, "x+1) Testing:", TestNum,
+                       " Max. Iteration", Max_i, " @ {:6.2f}".format(time.time()-StartTime), " Seconds"),
                 sys.stdout = original_stdout
             Max_i = i
     
